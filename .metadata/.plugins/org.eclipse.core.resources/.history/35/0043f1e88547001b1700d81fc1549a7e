@@ -39,7 +39,6 @@ public class Server {
 			msgResponse.setMessage("Ola "+ msgResult.getName()+"recebemos sua mensagem e ela será arquivada no servidor.");
 			
 			saida.writeObject(msgResponse);
-			saida.flush();
 			
 			
 			entrada.close();

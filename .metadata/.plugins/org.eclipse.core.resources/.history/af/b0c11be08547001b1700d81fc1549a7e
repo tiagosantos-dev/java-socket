@@ -27,25 +27,13 @@ public class Server {
 			ObjectOutputStream saida = new ObjectOutputStream(socket.getOutputStream());
 			ObjectInputStream entrada = new ObjectInputStream(socket.getInputStream());
 			
-			Message msgResult = (Message) entrada.readObject();
+			Message msg = (Message) entrada.readObject();
 
-			System.out.println("NOME: "+msgResult.getName());
-			System.out.println("SOBRENOME: "+msgResult.getSurname());
-			System.out.println("IDADE: "+msgResult.getAge());
-			System.out.println("MENSAGEM: "+msgResult.getMessage());
+			System.out.println("NOME: "+msg.getName());
+			System.out.println("SOBRENOME: "+msg.getSurname());
+			System.out.println("IDADE: "+msg.getAge());
+			System.out.println("MENSAGEM: "+msg.getMessage());
 			
-			
-			Message msgResponse = new Message();
-			msgResponse.setMessage("Ola "+ msgResult.getName()+"recebemos sua mensagem e ela será arquivada no servidor.");
-			
-			saida.writeObject(msgResponse);
-			saida.flush();
-			
-			
-			entrada.close();
-			saida.close();
-			socket.close();
-			serverSocket.close();
 			
 		}catch(IOException | ClassNotFoundException e) {
 			e.printStackTrace();

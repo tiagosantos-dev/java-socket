@@ -17,8 +17,6 @@ public class Message implements Serializable{
 		this.surname = surname;
 		this.age = age;
 	}
-	
-	public Message() {}
 
 
 	public String getMessage() {

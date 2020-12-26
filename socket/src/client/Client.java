@@ -1,5 +1,36 @@
 package client;
 
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.net.Socket;
+
+import util.Message;
+
 public class Client {
+	
+	
+	public static void main(String[] args) {
+		
+		
+		try {
+			Socket socket = new Socket("localhost", 1616);
+			
+			ObjectOutputStream saida = new ObjectOutputStream(socket.getOutputStream());
+			
+			ObjectInputStream entrada = new ObjectInputStream(socket.getInputStream());
+			
+			
+			Message msg = (Message) entrada.readObject();
+			
+			
+			
+		}catch(IOException | ClassNotFoundException e) {
+			e.printStackTrace();
+			
+		}
+			
+		
+	}
 
 }
