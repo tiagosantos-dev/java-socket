@@ -30,11 +30,6 @@ public class Client {
 			System.out.println("Mensagem recebida do servidor : "+ msgResponse.getMessage());
 			
 			
-			entrada.close();
-			saida.close();
-			socket.close();
-			
-			
 			
 		}catch(IOException | ClassNotFoundException e) {
 			e.printStackTrace();

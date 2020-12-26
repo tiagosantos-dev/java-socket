@@ -11,10 +11,9 @@ public class Message implements Serializable{
 	private Integer age;
 	
 	
-	public Message(String message, String name, String surname, Integer age) {
+	public Message(String message, String surname, Integer age) {
 		super();
 		this.message = message;
-		this.name = name;
 		this.surname = surname;
 		this.age = age;
 	}

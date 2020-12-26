@@ -19,15 +19,11 @@ public class Server {
 			
 			//Criando socket de conexao 
 			ServerSocket serverSocket = new ServerSocket(1616);
-			System.out.println("Iniciando Socket de Transferencia (SERVER)");
 			
 			//criando socket de comunicacao
-			
+			Socket socket = serverSocket.accept();
 			
 			while(true) {
-				
-				Socket socket = serverSocket.accept();
-				System.out.println("Criando conexao com socket de transporte ");
 				
 				//Criando entrada e saida de dados streams
 				ObjectOutputStream saida = new ObjectOutputStream(socket.getOutputStream());
@@ -47,13 +43,13 @@ public class Server {
 				saida.writeObject(msgResponse);
 				saida.flush();
 				
-			
-			
+				
 			}
 			
-		
-		
-		
+			entrada.close();
+			saida.close();
+			socket.close();
+			serverSocket.close();
 			
 		}catch(IOException | ClassNotFoundException e) {
 			e.printStackTrace();

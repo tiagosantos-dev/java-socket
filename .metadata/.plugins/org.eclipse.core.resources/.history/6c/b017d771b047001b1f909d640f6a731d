@@ -24,15 +24,9 @@ public class Client {
 			
 			Message msg = new Message("Ola, quero arquivar essa mensagem", "Tiago", "Santos", 22);
 			
-			saida.writeObject(msg);
-			
-			Message msgResponse = (Message) entrada.readObject();
-			System.out.println("Mensagem recebida do servidor : "+ msgResponse.getMessage());
 			
 			
-			entrada.close();
-			saida.close();
-			socket.close();
+			Message msg = (Message) entrada.readObject();
 			
 			
 			
