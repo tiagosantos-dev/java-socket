@@ -1,0 +1,45 @@
+package Thread;
+
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.net.Socket;
+
+import util.Message;
+
+public class SocketThread extends Thread {
+	private Socket socket;
+	
+	public SocketThread(Socket socket) {
+		this.socket = socket;
+	}
+	
+	
+	public void run() {
+		
+		try {
+			//Criando entrada e saida de dados streams
+			ObjectOutputStream saida = new ObjectOutputStream(socket.getOutputStream());
+			ObjectInputStream entrada = new ObjectInputStream(socket.getInputStream());
+			
+			Message msgResult = (Message) entrada.readObject();
+
+			System.out.println("NOME: "+msgResult.getName());
+			System.out.println("SOBRENOME: "+msgResult.getSurname());
+			System.out.println("IDADE: "+msgResult.getAge());
+			System.out.println("MENSAGEM: "+msgResult.getMessage());
+			
+			
+			Message msgResponse = new Message();
+			msgResponse.setMessage("Ola "+ msgResult.getName()+" recebemos sua mensagem e ela será arquivada no servidor.");
+			
+			saida.writeObject(msgResponse);
+			saida.flush();
+			
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		
+	}
+
+}

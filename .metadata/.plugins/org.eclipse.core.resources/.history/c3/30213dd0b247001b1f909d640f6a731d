@@ -1,12 +1,13 @@
 package server;
 
-import java.io.IOException; 
-
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
 
 import Thread.SocketThread;
-
+import util.Message;
 
 public class Server {
 	
@@ -18,7 +19,6 @@ public class Server {
 		try {
 			
 			//Criando socket de conexao 
-			@SuppressWarnings("resource")
 			ServerSocket serverSocket = new ServerSocket(1616);
 			System.out.println("Iniciando Socket de Transferencia (SERVER)");
 			
@@ -34,12 +34,13 @@ public class Server {
 				socketThread.start();
 			
 			}
-		
 			
+		
+		
+		
 			
 		}catch(IOException e) {
 			e.printStackTrace();
-			
 			
 			
 		}
