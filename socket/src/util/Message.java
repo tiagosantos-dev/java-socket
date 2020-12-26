@@ -1,0 +1,57 @@
+package util;
+
+import java.io.Serializable;
+
+public class Message implements Serializable{
+
+	private static final long serialVersionUID = 1L;
+	private String message;
+	private String surname;
+	private Integer age;
+	
+	
+	public Message(String message, String surname, Integer age) {
+		super();
+		this.message = message;
+		this.surname = surname;
+		this.age = age;
+	}
+
+
+	public String getMessage() {
+		return message;
+	}
+
+
+	public void setMessage(String message) {
+		this.message = message;
+	}
+
+
+	public String getSurname() {
+		return surname;
+	}
+
+
+	public void setSurname(String surname) {
+		this.surname = surname;
+	}
+
+
+	public Integer getAge() {
+		return age;
+	}
+
+
+	public void setAge(Integer age) {
+		this.age = age;
+	}
+	
+	
+	
+	
+	
+	
+	
+
+}
